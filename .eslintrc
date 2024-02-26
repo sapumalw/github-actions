@@ -1,0 +1,9 @@
+{
+  "extends": ["@sliit-foss/eslint-config-internal"],
+  "rules": { "no-console": "off" },
+  "globals": {
+    "describe": true,
+    "test": true,
+    "expect": true
+  }  
+}
