@@ -4,6 +4,10 @@ on:
   pull_request:
     branches:
       - main
+    types:
+      - opened
+      - reopened
+      - synchronize
 
 jobs:
   build:
@@ -22,7 +26,9 @@ jobs:
 
       - name: Build changes 🏗️
         run: npm run build
+
   test:
+      needs: build
       runs-on: macos-latest
       steps:
         - name: Checkout the code 🌳
@@ -37,4 +43,4 @@ jobs:
           run: npm install --ignore-scripts --fix-lockfile
 
         - name: Run tests on macOS ✔️
-          run: npm run build
+          run: npm test
