@@ -1,0 +1,40 @@
+name: Continous Integration
+
+on:
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout the code 🌳
+        uses: actions/checkout@v2
+
+      - name: Set up Node.js 🛠️
+        uses: actions/setup-node@v2
+        with:
+          node-version: '16'
+
+      - name: Install dependencies 📦  
+        run: npm install --ignore-scripts --fix-lockfile
+
+      - name: Build changes 🏗️
+        run: npm run build
+  test:
+      runs-on: macos-latest
+      steps:
+        - name: Checkout the code 🌳
+          uses: actions/checkout@v2
+
+        - name: Set up Node.js 🛠️
+          uses: actions/setup-node@v2
+          with:
+            node-version: '16'
+
+        - name: Install dependencies 📦  
+          run: npm install --ignore-scripts --fix-lockfile
+
+        - name: Run tests on macOS ✔️
+          run: npm run build
