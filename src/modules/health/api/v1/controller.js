@@ -7,7 +7,7 @@ const health = express.Router();
 health.get(
   "/",
   tracedAsyncHandler((req, res) => {
-    return response({ res, message: "Hello World!" });
+    return response({ res, message: "Hello World RTC!" });
   })
 );
 
