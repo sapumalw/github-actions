@@ -9,6 +9,6 @@ describe('Health Endpoint', () => {
     test('GET /api/v1/health', async () => {
         const response = await request(app).get('/api/v1/health');
         expect(response.status).toBe(200);
-        expect(response.body.message).toBe('Api is up and running!');
+        expect(response.body.message).toBe('Hello World!');
     });
 });
